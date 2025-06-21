@@ -35,12 +35,13 @@ class LogViewer {
                 $errMsg = $matches[5];
                 $file = $matches[6];
                 $lineNum = $matches[7];
+                $safeFile = self::safePath($file);
                 echo "\n=== ERROR DETECTED ===\n";
                 echo "Time: $timestamp\n";
                 echo "Context: $context\n";
                 echo "Error Type: $errType\n";
                 echo "Exception: $exceptionType\n";
-                echo "File: " . self::safePath($file) . "\n";
+                echo "File: $safeFile\n";
                 echo "Line: $lineNum\n";
                 echo "Message: $errMsg\n";
                 // SQL/code (from error message)
