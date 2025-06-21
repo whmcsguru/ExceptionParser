@@ -6,7 +6,8 @@
 class LogViewer {
     // Helper to get last directory and filename only
     private static function safePath($path) {
-        $parts = explode(DIRECTORY_SEPARATOR, str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $path));
+        $path = str_replace(['\\', '/'], DIRECTORY_SEPARATOR, $path);
+        $parts = explode(DIRECTORY_SEPARATOR, $path);
         $count = count($parts);
         if ($count >= 2) {
             return $parts[$count-2] . DIRECTORY_SEPARATOR . $parts[$count-1];
