@@ -40,7 +40,7 @@ class LogViewer {
                 echo "Context: $context\n";
                 echo "Error Type: $errType\n";
                 echo "Exception: $exceptionType\n";
-                echo "File: $file\n";
+                echo "File: " . self::safePath($file) . "\n";
                 echo "Line: $lineNum\n";
                 echo "Message: $errMsg\n";
                 // SQL/code (from error message)
@@ -135,4 +135,4 @@ if (php_sapi_name() === 'cli') {
     }
     $logFile = $argv[1];
     LogViewer::viewAndTranslate($logFile);
-}  
+}
